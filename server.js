@@ -1,0 +1,105 @@
+// importa a biblioteca
+const express = require("express");
+
+// cria a aplicação express
+const app = express();
+
+app.use(express.json());
+
+const PORT = 3000;
+
+const corversa = [{
+Daniel:
+"Você me chamou aqui pra quê, Carolinne? Tava trabalhando.",
+
+Caroline:
+"Porque eu não aguento mais segurar isso. A gente precisa conversar — de verdade.",
+
+Daniel:
+"Tá... então fala. Tô ouvindo.",
+
+Carolinne:
+"Daniel, você foi corno. Eu te traí.",
+
+Daniel :
+"Você tá brincando, né?",
+
+Carolinne:
+"Não tô. Faz uns dois meses. Eu não consegui mais esconder.",
+
+Daniel:
+"Com quem, Carolinne?",
+
+Carolinne:
+"Com o Thiago. Sim, teu amigo.",
+
+Daniel:
+"Você tem noção do que fez? Você destruiu tudo, por quê?",
+
+Carolinne:
+"Porque a gente já tava quebrado e você fingia que tava tudo bem. Eu me senti sozinha, Daniel.",
+
+Daniel:
+"E ao invés de conversar, você me fez de idiota. Parabéns. Conseguiu.",
+
+Carolinne:
+"Eu sei. E eu não espero perdão. Só queria ser honesta, pelo menos uma vez.",
+
+Daniel:
+"Tarde demais pra honestidade. Vai embora, Carolinne.",
+}]
+
+
+
+const ALUNOS = [
+    {
+        id:1, nome:"Thales", cor:"Cinza", idade:16
+    },
+    {
+        id:2, 
+        nome:"Jão", 
+        cor:"verde", 
+        idade:16
+    },
+    {
+        id:3, nome:"Henry", cor:"azul", idade:17
+    },
+]
+const am = [{
+        Thales: "estou com saudades de vc "
+}]
+app.get("/alunos", (req, res) =>{
+    res.json(ALUNOS);
+})
+app.get("/alunos/:id", (req, res)=>{
+    const id = Number (req.params.id)
+    console.log(`Valor recebido ${id}`);
+    const aluno = ALUNOS.filter((aluno)=> aluno.id === id)
+    if(aluno.length > 0){
+        res.status(200).json(aluno)
+    }else{
+        res.status(404).json({ msg : "Aluno não encontrado"})
+    }
+})
+
+app.get("/alunos/cor/:cor", (req, res)=>{
+    const cor = req.params.cor.toLowerCase();
+    console.log(`Cro recebida: ${cor}`);
+    const alunosFiltrados = ALUNOS.filter(
+        (aluno)=> aluno.cor === cor
+    );
+    if(alunosFiltrados.length > 0){
+        res.status(200).json(alunosFiltrados)
+    }else{
+        res.status(404).json({ msg : "Nenhum aluno encontrado com essa cor "})
+    }
+})
+
+
+
+app.listen(PORT, ()=>{
+    console.log(`Servidor rodando em http://localhost:${PORT}`)
+})
+
+
+
