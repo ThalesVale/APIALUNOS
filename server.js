@@ -8,49 +8,6 @@ app.use(express.json());
 
 const PORT = 3000;
 
-const corversa = [{
-Daniel:
-"Você me chamou aqui pra quê, Carolinne? Tava trabalhando.",
-
-Caroline:
-"Porque eu não aguento mais segurar isso. A gente precisa conversar — de verdade.",
-
-Daniel:
-"Tá... então fala. Tô ouvindo.",
-
-Carolinne:
-"Daniel, você foi corno. Eu te traí.",
-
-Daniel :
-"Você tá brincando, né?",
-
-Carolinne:
-"Não tô. Faz uns dois meses. Eu não consegui mais esconder.",
-
-Daniel:
-"Com quem, Carolinne?",
-
-Carolinne:
-"Com o Thiago. Sim, teu amigo.",
-
-Daniel:
-"Você tem noção do que fez? Você destruiu tudo, por quê?",
-
-Carolinne:
-"Porque a gente já tava quebrado e você fingia que tava tudo bem. Eu me senti sozinha, Daniel.",
-
-Daniel:
-"E ao invés de conversar, você me fez de idiota. Parabéns. Conseguiu.",
-
-Carolinne:
-"Eu sei. E eu não espero perdão. Só queria ser honesta, pelo menos uma vez.",
-
-Daniel:
-"Tarde demais pra honestidade. Vai embora, Carolinne.",
-}]
-
-
-
 const ALUNOS = [
     {
         id:1, nome:"Thales", cor:"Cinza", idade:16
@@ -65,9 +22,7 @@ const ALUNOS = [
         id:3, nome:"Henry", cor:"azul", idade:17
     },
 ]
-const am = [{
-        Thales: "estou com saudades de vc "
-}]
+
 app.get("/alunos", (req, res) =>{
     res.json(ALUNOS);
 })
